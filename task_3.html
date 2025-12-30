@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Signup Form</h2>
+
+    <form class="border rounded p-4 bg-white shadow-sm">
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" placeholder="Enter first name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" placeholder="Enter last name">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Enter password">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Gender</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender">
+                <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender">
+                <label class="form-check-label">Female</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Interested Courses</label><br>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Web Development</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Python</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Data Science</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Profile Picture</label>
+            <input type="file" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Country</label>
+            <select class="form-select">
+                <option>Select Country</option>
+                <option>Pakistan</option>
+                <option>USA</option>
+                <option>UK</option>
+                <option>Canada</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            <select class="form-select">
+                <option>Select City</option>
+                <option>Karachi</option>
+                <option>Islamabad</option>
+                <option>Lahore</option>
+                <option>New York</option>
+                <option>Toronto</option>
+                <option>London</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+
+    </form>
+</div>
+
+</body>
+</html>
