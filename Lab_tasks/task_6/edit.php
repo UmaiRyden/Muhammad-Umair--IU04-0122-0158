@@ -9,24 +9,16 @@ if (isset($_POST['update'])) {
     $company = $_POST['company'];
     $price = $_POST['price'];
     
-    $query = "UPDATE products SET Name=?, Type=?, Company=?, Price=? WHERE id=?";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "sssdi", $name, $type, $company, $price, $id);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    $query = "UPDATE products SET Name='$name', Type='$type', Company='$company', Price='$price' WHERE id='$id'";
+    mysqli_query($conn, $query);
     
     header("Location: product.php");
     exit();
 }
 
 $id = $_GET['id'];
-$query = "SELECT * FROM products WHERE id=?";
-$stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, "i", $id);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
+$result = mysqli_query($conn, "SELECT * FROM products WHERE id='$id'");
 $row = mysqli_fetch_assoc($result);
-mysqli_stmt_close($stmt);
 ?>
 
 <h2>Edit Product</h2>
