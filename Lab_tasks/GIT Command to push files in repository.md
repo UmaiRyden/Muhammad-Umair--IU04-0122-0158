@@ -6,7 +6,7 @@ git add .
 
 git commit -m ""
 
-git remote add origin https://github.com/amansuhail/Aman-suhail-IU04-0121-0038.git
+git remote add origin https://github.com/UmaiRyden/Muhammad-Umair--IU04-0122-0158
 
 git push
 

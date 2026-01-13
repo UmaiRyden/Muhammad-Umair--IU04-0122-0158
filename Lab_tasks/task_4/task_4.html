@@ -16,19 +16,22 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
                 <input type="text" id="name" name="name" class="form-control" placeholder="Enter name">
+                <p id="name_error" style="color:red; font-size: 13px;"></p>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Enter email">
+                <p id="email_error" style="color:red; font-size: 13px;"></p>
             </div>
 
             <div class="mb-3">
                 <label for="course" class="form-label">Course:</label>
                 <input type="text" id="course" name="course" class="form-control" placeholder="Enter course">
+                <p id="course_error" style="color:red; font-size: 13px;"></p>
             </div>
         </form>
-        <button id="submit" class="btn btn-primary w-100" onclick="addStudent()">Submit</button>
+        <button id="submit" class="btn btn-primary w-100" onclick="return addStudent()">Submit</button>
 
         <table id="studentTable" class="table table-bordered mt-4 bg-white">
             <thead>
@@ -41,10 +44,51 @@
         </table>
     </div>
     <script>
+        function validateForm(){
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let course = document.getElementById("course").value.trim();
+            
+            let isValid = true;
+
+            if (name == "") {
+                document.getElementById("name_error").innerHTML = "Please enter name";
+                isValid = false;
+            } else {
+                document.getElementById("name_error").innerHTML = "";
+            }
+
+            if (email == "") {
+                document.getElementById("email_error").innerHTML = "Please enter email";
+                isValid = false;
+            } else {
+                let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById("email_error").innerHTML = "Please enter a valid email";
+                    isValid = false;
+                } else {
+                    document.getElementById("email_error").innerHTML = "";
+                }
+            }
+
+            if (course == "") {
+                document.getElementById("course_error").innerHTML = "Please enter course";
+                isValid = false;
+            } else {
+                document.getElementById("course_error").innerHTML = "";
+            }
+
+            return isValid;
+        }
+
         function addStudent(){
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let course = document.getElementById("course").value;
+            if (!validateForm()) {
+                return false;
+            }
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let course = document.getElementById("course").value.trim();
 
             let table = document.getElementById("studentTable");
             let newRow = table.insertRow();
@@ -55,6 +99,12 @@
             cell1.innerHTML = name;
             cell2.innerHTML = email;
             cell3.innerHTML = course;
+
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("course").value = "";
+
+            return false;
         }
     </script>
 </body>

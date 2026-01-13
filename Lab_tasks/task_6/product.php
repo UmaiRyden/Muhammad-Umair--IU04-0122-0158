@@ -15,6 +15,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <th>Type</th>
         <th>Company</th>
         <th>Price</th>
+        <th>Actions</th>
     </tr>
 
     <?php foreach ($data as $row) { ?>
@@ -24,6 +25,10 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <td><?php echo $row['Type']; ?></td>
             <td><?php echo $row['Company']; ?></td>
             <td><?php echo $row['Price']; ?></td>
+            <td>
+                <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a> | 
+                <a href="delete.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+            </td>
         </tr>
     <?php } ?>
 </table>
