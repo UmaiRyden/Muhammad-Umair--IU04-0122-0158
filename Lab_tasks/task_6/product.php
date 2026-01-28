@@ -17,7 +17,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <th>Price</th>
         <th>Actions</th>
     </tr>
-
+    
     <?php foreach ($data as $row) { ?>
         <tr>
             <td><?php echo $row['id']; ?></td>
